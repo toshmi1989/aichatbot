@@ -11,11 +11,32 @@ python3 chatbot_local.py --source regulation_uz.txt
 
 Введите вопрос, чатбот вернёт наиболее релевантные фрагменты.
 
+## Распознавание аудио (узбекский)
+
+Теперь можно подать аудио как вопрос:
+
+```bash
+python3 chatbot_local.py --source regulation_uz.txt --audio sample_uz.wav --language uz
+```
+
+Для этого нужен пакет `faster-whisper`:
+
+```bash
+pip install faster-whisper
+```
+
+Полезные параметры:
+- `--model-size` (`tiny/base/small/medium/large-v3`) — размер модели распознавания.
+- `--device` (`cpu` или `cuda`) — где выполнять распознавание.
+- `--compute-type` (`int8/float16/float32`) — режим вычислений.
+
 ## Настройки
 
 - `--source` — путь к текстовому файлу базы знаний (по умолчанию `regulation_uz.txt`).
 - `--top` — количество возвращаемых фрагментов (по умолчанию 3).
 - `--wrap` — ширина переноса строк в выводе (по умолчанию 120).
+- `--audio` — путь к аудиофайлу вопроса.
+- `--language` — код языка распознавания (по умолчанию `uz`).
 
 ## Как добавить новые материалы
 
